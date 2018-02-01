@@ -3,16 +3,16 @@
 // All measurement in millimeters, mm
 
 // Height of the base
-h_base = 1; 
+h_base = 2; 
 
 // Spacing and patterning of each cyllindrical coupon
-num_of_row = 12;
-num_of_col = 8;
+num_of_row = 12; // 12 
+num_of_col = 8; // 8
 
 // Maximum radius and height of the each cylindrical coupon
-r_well = 1.5; 
-h_well = 8; 
-center_to_center = r_well*2+.25;
+r_well = 1.25; // 1.5 mm radius 
+h_well = 8;  // 8 mm height
+center_to_center = r_well*2+.5;
 quality_fn = 50;
 
 // Build an array of cylinders with final outer diamter
