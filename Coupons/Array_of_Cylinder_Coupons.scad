@@ -2,7 +2,7 @@
 
 // All measurement in millimeters, mm
 
-// Height of the dish
+// Height of the base
 h_base = 1; 
 
 // Spacing and patterning of each cyllindrical coupon
