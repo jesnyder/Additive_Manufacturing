@@ -19,7 +19,7 @@ distance_lid_to_tube = 25;
 
 // Connector geometry 
 connector_width = 4; 
-connector_thickness = .5; 
+connector_thickness = .4; 
 
 // Revolve tube 
 rotate_extrude($fn=fn_quality) 
@@ -28,7 +28,7 @@ polygon( points=[[0,0],[2*tube_wall_width,0],[tube_barrel_width,cone_length],[tu
 // Revolve cap 
 translate([0,distance_lid_to_tube,tube_length+1])
 rotate_extrude($fn=fn_quality) 
-polygon( points=[[0,0],[cap_outer_width,0],[cap_outer_width,2],[cap_outer_width-cap_outer_lip,2],[cap_outer_width-cap_outer_lip,7],[tube_barrel_width-tube_wall_width,7],[tube_barrel_width-tube_wall_width,2],[0,2]] );
+polygon( points=[[0,0],[cap_outer_width,0],[cap_outer_width,2*tube_wall_width],[cap_outer_width-cap_outer_lip,2*tube_wall_width],[cap_outer_width-cap_outer_lip,2*tube_wall_width+5],[tube_barrel_width-tube_wall_width,2*tube_wall_width+5],[tube_barrel_width-tube_wall_width,2*tube_wall_width],[0,2*tube_wall_width]] );
 
 // Connector between cap and tube, an extruded rectangle
 translate([-connector_width/2,tube_barrel_width-1,tube_length+1.5])
