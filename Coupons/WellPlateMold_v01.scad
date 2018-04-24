@@ -5,24 +5,26 @@
 // Cell-PDMS attachment: https://gmwgroup.harvard.edu/pubs/pdf/891.pdf
 
 
-wellDiameter = 1; wellDepth = 2; spacing = wellDiameter*.4;// Parameters of each protrusions, to be molded to form wells
-rows = 5; columns = 8; // Array parametes of the protrusion pattern
+wellDiameter = 1; wellDepth = 4; spacing = wellDiameter*.4;// Parameters of each protrusions, to be molded to form wells
+rows = 5; columns = 9; // Array parametes of the protrusion pattern
 
 
 baseLength = wellDiameter*(2+spacing)*(columns+1); 
 baseWidth = wellDiameter*(2+spacing)*(rows+1); 
 baseHeight = wellDepth+2; 
+topWelltopPlate = 2; 
 
-module plate(baseLength, baseWidth, baseHeight){
-    innerPlate = [baseLength, baseWidth, 2*baseHeight];
-    outerPlate = [1.2*baseLength, 1.2*baseWidth, 2*baseHeight];
+module plate(baseLength, baseWidth, baseHeight, topWelltopPlate){
+    $fn = 100;
+    innerPlate = [baseLength, baseWidth, baseHeight+topWelltopPlate];
+    outerPlate = [1.1*baseLength, 1.1*baseWidth, baseHeight+topWelltopPlate];
     difference(){ 
-        translate([0, 0, -baseHeight]) cube(outerPlate,true); 
-        translate([0, 0, -baseHeight+3]) cube(innerPlate,true); } // difference ended
+      translate([0, 0, -baseHeight/2]) cube(outerPlate,true); 
+        translate([0, 0, -(baseHeight+topWelltopPlate/2)/4]) cube(innerPlate,true); } // difference ended
     } // module ended
 
 module wells4cells (wellDiameter, wellDepth,rows,columns){
-    $fn = 40;
+    $fn = 100;
     translate([-wellDiameter*columns*(1+spacing), -wellDiameter*rows*(1+spacing), 0])
     union(){
     for(j = [1 : 1 : rows]) {
@@ -35,8 +37,9 @@ module wells4cells (wellDiameter, wellDepth,rows,columns){
     } // module ended
  
     
- union(){  
+union(){  
     wells4cells(wellDiameter, wellDepth,rows,columns);  
-    translate([0, 0, baseHeight]) plate(baseLength, baseWidth, baseHeight);
+    translate([0, 0, baseHeight]) plate(baseLength, baseWidth, baseHeight, topWelltopPlate);
  } // end union
-      
+   
+ 
