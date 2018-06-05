@@ -1,0 +1,13 @@
+import os, sys, shutil
+
+for i in range (1,122):
+
+	j = str(i).rjust(3, '0')
+	original_path = 'DAPI/%s/Pos0/img_000000000_Default_000.tif' % j
+	new_path = 'Photo_List/img_000000000_Default_000.tif'
+	new_name = 'Photo_List/%s.tif' % j
+
+	shutil.copy2(original_path, new_path)
+	os.rename(new_path, new_name)
+	
+
