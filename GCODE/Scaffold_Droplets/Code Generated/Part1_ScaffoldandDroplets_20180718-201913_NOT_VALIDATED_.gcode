@@ -1,5 +1,5 @@
 
-; Date Compiled: 20180718-201421
+; Date Compiled: 20180718-201913
 ; GCODE Reference: http://reprap.org/wiki/G-code#G0_.26_G1:_Move
 G21; set units to millimeters
 G90; use G90 for absolute and G91 for incremental/relative coordinates
@@ -110,9 +110,3 @@ G1 X20.00 Y19.00 Z0.00 E1.00
 G1 X0.00 Y19.00 Z0.00 E1.00
  
 G1 X0.00 Y0.00 Z-3.00 E20.00
- 
-G1 E0 ;
-G92 E15 ;
-G1 E0 ;
-G92 E20 ;
-T1 ; Nozzle 1
